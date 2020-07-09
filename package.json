@@ -2,6 +2,9 @@
   "name": "dont-panic-just-cook",
   "version": "1.0.0",
   "description": "Chef's event sharing platform. Created by Mona",
+  "engines": {
+    "node": "12.18.2"
+  },
   "private": true,
   "main": "src/index.js",
   "dependencies": {
@@ -38,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && gulp licenses",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
