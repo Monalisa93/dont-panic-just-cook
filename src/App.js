@@ -1,7 +1,7 @@
 /*!
 
 =========================================================
-* Don't Panic Just Cook - v1.0.0
+* Palo Alto Diet - v1.0.0
 =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -57,10 +57,10 @@ class App extends Component {
                     <Route path="/shopping-cart-page" component={ShoppingCartPage} />
                     <Route path="/signup-page" component={SignupPage} />
                     <Route path="/error-page" component={ErrorPage} />
-                    <Route path="/events-page" component={EventsPage} />
+                    <AuthRoute path="/events-page" component={EventsPage}/>
                     <Route path="/event/:id" component={withRouter(EventSummary)} type="private" exact />
-                    <AuthRoute path="/home" component={withRouter(Home)} type="private" exact />
-                    <AuthRoute path="/" component={withRouter(Home)} type="guest" />
+                    <Route path="/home" component={withRouter(Home)} type="guest" exact />
+                    <Route path="/" component={withRouter(Home)}/>
                 </Switch>
             </Router>
         )

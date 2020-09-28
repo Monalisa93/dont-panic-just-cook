@@ -23,7 +23,7 @@ export default function ProductSection() {
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Our Offerings</h2>
           <h5 className={classes.description}>
-            Our goal is to spread the joy of cooking, socializing, and loving life! Don't Panic! Just Cook. brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
+            Our goal is to spread the joy of cooking, socializing, and loving life! Palo Alto Diet. brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
           </h5>
           {/*<h4 className={classes.description}>*/}
           {/*  We will be hosting our events live, via video chat. Just connect to our events with your smartphone or laptop and enjoy our interactive, improvised, and most of all fun cooking experiences.*/}

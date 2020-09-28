@@ -159,7 +159,7 @@ export default function SectionContacts({ ...rest }) {
                 icon={Phone}
               />
             </GridItem>
-            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+            {/* <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
               <Card className={classes.card1}>
                 <form>
                   <CardHeader
@@ -234,7 +234,7 @@ export default function SectionContacts({ ...rest }) {
                   </CardFooter>
                 </form>
               </Card>
-            </GridItem>
+            </GridItem> */}
           </GridContainer>
         </div>
       </div>

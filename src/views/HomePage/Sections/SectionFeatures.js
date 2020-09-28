@@ -38,7 +38,7 @@ export default function SectionFeatures({ ...rest }) {
             >
               <h2 className={classes.title}>Our Offerings</h2>
               <h5 className={classes.description}>
-                Our goal is to spread the joy of cooking, socializing, and loving life! Don't Panic! Just Cook. brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
+                Our goal is to spread the joy of cooking, socializing, and loving life! Palo Alto Diet. brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
               </h5>
             </GridItem>
           </GridContainer>

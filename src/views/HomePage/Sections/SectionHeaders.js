@@ -86,7 +86,7 @@ function SectionHeaders({ ...props }) {
       <div>
         <Header
           absolute
-          brand="Don't Panic! Just Cook"
+          brand="Palo Alto Diet"
           color="transparent"
           links={
             auth.uid ?
@@ -202,7 +202,7 @@ function SectionHeaders({ ...props }) {
                   <GridItem xs={12} sm={6} md={6}>
                     <h1 className={classes.title}>Spread the joy of Vegan cooking</h1>
                     <h4>
-                      Don't Panic! Just Cook brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
+                      Palo Alto Diet brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
                     </h4>
                     <br />
                     <Button color="danger" size="lg">

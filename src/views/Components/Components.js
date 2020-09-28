@@ -53,7 +53,7 @@ export default function Components(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Don't Panic! Just Cook.</h1>
+                <h1 className={classes.title}>Palo Alto Diet.</h1>
                 <h3 className={classes.subtitle}>
                   Material UI design components for web app.
                 </h3>

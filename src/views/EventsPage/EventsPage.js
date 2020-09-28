@@ -38,7 +38,7 @@ function EventsPage({ ...props }) {
   return (
     <div>
       <Header
-        brand="Don't Panic! Just Cook"
+        brand="Palo Alto Diet"
         // links={<HeaderLinks dropdownHoverColor="info" />}
         fixed
         color="transparent"
@@ -85,7 +85,7 @@ function EventsPage({ ...props }) {
                     className={classes.block}
                     target="_blank"
                   >
-                    Don't Panic! Just Cook
+                    Palo Alto Diet
                   </a>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
@@ -115,7 +115,7 @@ function EventsPage({ ...props }) {
                 href=""
                 target="_blank"
               >
-                Don't Panic! Just Cook Team
+                Palo Alto Diet Team
               </a>{" "}
               for a better web.
             </div>
@@ -134,7 +134,7 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([
-    { collection: 'events', orderBy: ['createdAt', 'desc'], where: [['authorId', '==', 'BdDyHQu33VbT6TfLYEpx2qzyQa82']] }
+  firestoreConnect((props, store) => [
+    { collection: 'events', orderBy: ['createdAt', 'desc'], where: [['authorId', '==', `${store.getState().firebase.auth.uid}`]] }
   ])
 )(EventsPage)

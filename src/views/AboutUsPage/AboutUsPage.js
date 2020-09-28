@@ -35,7 +35,7 @@ export default function AboutUsPage() {
   return (
     <div>
       <Header
-        brand="Don't Panic! Just Cook"
+        brand="Palo Alto Diet"
         links={<HeaderLinks dropdownHoverColor="info" />}
         fixed
         color="transparent"

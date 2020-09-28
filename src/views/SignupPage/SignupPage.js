@@ -75,7 +75,7 @@ function SignUpPage({ ...props }) {
       <Header
         absolute
         color="transparent"
-        brand="Don't Panic! Just Cook"
+        brand="Palo Alto Diet"
         // links={<HeaderLinks dropdownHoverColor="rose" />}
       />
       <div
@@ -258,7 +258,7 @@ function SignUpPage({ ...props }) {
                   href=""
                   target="_blank"
                 >
-                  Don't Panic Just Cook Team
+                  Palo Alto Diet Team
                 </a>
               </div>
             </div>
