@@ -19,11 +19,16 @@ import SectionInterested from "./Sections/SectionInterested.js";
 import SectionImage from "./Sections/SectionImage.js";
 import SubscribeLine from "./Sections/SubscribeLine.js";
 
+// redux
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+
 import blogPostsPageStyle from "assets/jss/material-kit-pro-react/views/blogPostsPageStyle.js";
 
 const useStyles = makeStyles(blogPostsPageStyle);
 
-export default function BlogPostsPage() {
+function BlogPostsPage({ ...props }) {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
@@ -32,8 +37,8 @@ export default function BlogPostsPage() {
   return (
     <div>
       <Header
-        brand="Material Kit PRO React"
-        links={<HeaderLinks dropdownHoverColor="info" />}
+        brand="Palo Alto Diet"
+        // links={<HeaderLinks dropdownHoverColor="info" />}
         fixed
         color="transparent"
         changeColorOnScroll={{
@@ -46,7 +51,7 @@ export default function BlogPostsPage() {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={8} className={classes.textCenter}>
               <h2 className={classes.title}>
-                A Place for Entrepreneurs to Share and Discover New Stories
+                Market research and study
               </h2>
             </GridItem>
           </GridContainer>
@@ -54,11 +59,8 @@ export default function BlogPostsPage() {
       </Parallax>
       <div className={classes.main}>
         <div className={classes.container}>
-          <SectionPills />
-          <SectionInterested />
+          <SectionInterested {...props}/>
         </div>
-        <SectionImage />
-        <SubscribeLine />
       </div>
       <Footer
         content={
@@ -67,34 +69,20 @@ export default function BlogPostsPage() {
               <List className={classes.list}>
                 <ListItem className={classes.inlineBlock}>
                   <a
-                    href="https://www.creative-tim.com/?ref=mkpr-blog-posts"
+                    href=""
                     target="_blank"
                     className={classes.block}
                   >
-                    Creative Tim
+                    Palo Alto Diet
                   </a>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
                   <a
-                    href="https://www.creative-tim.com/presentation?ref=mkpr-blog-posts"
+                    href=""
                     target="_blank"
                     className={classes.block}
                   >
                     About us
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a href="//blog.creative-tim.com/" className={classes.block}>
-                    Blog
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/license?ref=mkpr-blog-posts"
-                    target="_blank"
-                    className={classes.block}
-                  >
-                    Licenses
                   </a>
                 </ListItem>
               </List>
@@ -103,10 +91,10 @@ export default function BlogPostsPage() {
               &copy; {1900 + new Date().getYear()} , made with{" "}
               <Favorite className={classes.icon} /> by{" "}
               <a
-                href="https://www.creative-tim.com?ref=mkpr-blog-posts"
+                href=""
                 target="_blank"
               >
-                Creative Tim
+                Palo Alto Team
               </a>{" "}
               for a better web.
             </div>
@@ -116,3 +104,18 @@ export default function BlogPostsPage() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    blogs: state.firestore.ordered.blogs
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect((props, store) => [
+    { collection: 'blogs' }
+  ])
+)(BlogPostsPage)
+
+

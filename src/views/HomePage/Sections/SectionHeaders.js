@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Call from "@material-ui/icons/Call";
 // core components
 import Header from "components/Header/Header.js";
@@ -20,13 +20,13 @@ import GridItem from "components/Grid/GridItem.js";
 import headersStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/headersStyle.js";
 
 // redux
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import dg1 from "assets/img/vegan_1.jpg";
 import dg2 from "assets/img/vegan_2.jpg";
 import dg3 from "assets/img/vegan_3.jpg";
 
-import { signOut } from '../../../store/actions/authActions';
+import { signOut } from "../../../store/actions/authActions";
 
 const useStyles = makeStyles(headersStyle);
 
@@ -38,7 +38,7 @@ function SectionHeaders({ ...props }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true
+    autoplay: true,
   };
   const { auth } = props;
   const smoothScroll = (e, target) => {
@@ -89,27 +89,37 @@ function SectionHeaders({ ...props }) {
           brand="Palo Alto Diet"
           color="transparent"
           links={
-            auth.uid ?
+            auth.uid ? (
               <List className={classes.list + " " + classes.mlAuto}>
                 <ListItem className={classes.listItem}>
                   <Button
-                    href="#pablo"
+                    href="#home"
                     className={classes.navLink}
-                    onClick={e => e.preventDefault()}
+                    onClick={(e) => e.preventDefault()}
                     color="transparent"
                   >
                     Home
-                </Button>
+                  </Button>
                 </ListItem>
                 <ListItem className={classes.listItem}>
                   <Button
-                    href="#pablo"
+                    href="#events"
                     className={classes.navLink}
-                    onClick={e => e.preventDefault()}
+                    onClick={() => props.history.push("/events-page")}
                     color="transparent"
                   >
-                    <Link to="/events-page">Events</Link>
-                </Button>
+                    Events
+                  </Button>
+                </ListItem>
+                <ListItem className={classes.listItem}>
+                  <Button
+                    href="#events"
+                    className={classes.navLink}
+                    onClick={() => props.history.push("/blog-posts")}
+                    color="transparent"
+                  >
+                    Blogs
+                  </Button>
                 </ListItem>
                 <ListItem className={classes.listItem}>
                   <Button
@@ -118,7 +128,7 @@ function SectionHeaders({ ...props }) {
                     color="transparent"
                   >
                     Log Out
-                </Button>
+                  </Button>
                 </ListItem>
                 {/* <ListItem className={classes.listItem}>
                 <Button
@@ -132,62 +142,58 @@ function SectionHeaders({ ...props }) {
               </ListItem> */}
                 <ListItem className={classes.listItem}>
                   <Button
-                    href="#pablo"
+                    href="#contacts"
                     className={classes.navLink}
-                    onClick={e => e.preventDefault()}
+                    onClick={(e) => smoothScroll(e, "#contacts")}
                     color="transparent"
                   >
-                    <Link
-                      to="/contacts"
-                      className={classes.dropdownLink}
-                      onClick={e => smoothScroll(e, "contacts")}
-                    >
-                      <Call className={classes.dropdownIcons} /> Contact Us
-                    </Link>
+                    <Call className={classes.dropdownIcons} /> Contact Us
                   </Button>
                 </ListItem>
               </List>
-              :
+            ) : (
               <List className={classes.list + " " + classes.mlAuto}>
                 <ListItem className={classes.listItem}>
                   <Button
-                    href="/login-page"
+                    href="#login-page"
                     className={classes.navLink}
-                    onClick={e => e.preventDefault()}
+                    onClick={() => props.history.push("/login-page")}
                     color="transparent"
                   >
-                    <Link to="/login-page">Login</Link>
+                    Login
                   </Button>
                 </ListItem>
-                <ListItem className={classes.listItem}>
+                {/* <ListItem className={classes.listItem}>
                   <Button
                     href=""
                     color={window.innerWidth < 960 ? "info" : "white"}
                     target="_blank"
                     className={classes.navButton}
+                    onClick={() => props.history.push("/signup-page")}
                     round
                   >
                     <AccountCircleIcon className={classes.icons} />
-                    <Link to="/signup-page">Sign Up</Link>
+                    Sign Up
                   </Button>
-                </ListItem>
+                </ListItem> */}
                 <ListItem className={classes.listItem}>
                   <Button
                     href="#pablo"
                     className={classes.navLink}
-                    onClick={e => e.preventDefault()}
+                    onClick={(e) => e.preventDefault()}
                     color="transparent"
                   >
                     <Link
                       to="/contacts"
                       className={classes.dropdownLink}
-                      onClick={e => smoothScroll(e, "contacts")}
+                      onClick={(e) => smoothScroll(e, "contacts")}
                     >
                       <Call className={classes.dropdownIcons} /> Contact Us
                     </Link>
                   </Button>
                 </ListItem>
               </List>
+            )
           }
         />
         <Carousel {...settings}>
@@ -200,9 +206,13 @@ function SectionHeaders({ ...props }) {
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={6} md={6}>
-                    <h1 className={classes.title}>Spread the joy of Vegan cooking</h1>
+                    <h1 className={classes.title}>
+                      Spread the joy of Vegan cooking
+                    </h1>
                     <h4>
-                      Palo Alto Diet brings amazing plant-based dishes, taught to you live, right into your kitchen, for virtually hosted interactive cooking experiences!
+                      Palo Alto Diet brings amazing plant-based dishes, taught
+                      to you live, right into your kitchen, for virtually hosted
+                      interactive cooking experiences!
                     </h4>
                     <br />
                     <Button color="danger" size="lg">
@@ -241,9 +251,13 @@ function SectionHeaders({ ...props }) {
                       classes.textCenter
                     )}
                   >
-                    <h1 className={classes.title}>Hosting live events, via video chat.</h1>
+                    <h1 className={classes.title}>
+                      Hosting live events, via video chat.
+                    </h1>
                     <h4>
-                      Just connect to our events with your smartphone or laptop and enjoy our interactive, improvised, and most of all fun cooking experiences.
+                      Just connect to our events with your smartphone or laptop
+                      and enjoy our interactive, improvised, and most of all fun
+                      cooking experiences.
                     </h4>
                     <br />
                     <h6>Connect with us on:</h6>
@@ -281,18 +295,18 @@ function SectionHeaders({ ...props }) {
                     md={7}
                     className={classNames(classes.mlAuto, classes.textRight)}
                   >
-                    <h1 className={classes.title}>Spicy Chinese Eggplant with Szechuan Sauce</h1>
+                    <h1 className={classes.title}>
+                      Spicy Chinese Eggplant with Szechuan Sauce
+                    </h1>
                     <h4>
-                      with chilies and peanuts– serve or black rice or rice noodles for a tasty, easy vegan dinner!
+                      with chilies and peanuts– serve or black rice or rice
+                      noodles for a tasty, easy vegan dinner!
                     </h4>
                     <br />
                     <div>
-                      {/* <Button color="white" simple size="lg">
-                        <Share /> Share Offer
-                      </Button> */}
-                      <Button color="danger" size="lg">
+                      {/* <Button color="danger" size="lg">
                         <AccountCircleIcon /> SignUp now
-                      </Button>
+                      </Button> */}
                     </div>
                   </GridItem>
                 </GridContainer>
@@ -309,14 +323,14 @@ function SectionHeaders({ ...props }) {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
-  }
-}
+    auth: state.firebase.auth,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => dispatch(signOut())
-  }
-}
+    signOut: () => dispatch(signOut()),
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionHeaders)
+export default connect(mapStateToProps, mapDispatchToProps)(SectionHeaders);
